@@ -4,6 +4,7 @@ from logic.helper_logic import HelperLogic
 from logic.organization_logic import OrganizationLogic
 from logic.assignment_repo_logic import AssignmentRepoLogic
 from tools.recaptcha_helper import RecaptchaHelper
+from routes.main_routes import MainRoutes
 import requests
 
 
@@ -27,10 +28,7 @@ orgArray = None
 assignArray = None
 utilObj = None
 
-
-@app.route("/")
-def home():
-    return render_template("index.html")
+MainRoutes.configure_routes(app)
 
 
 @app.route("/student/list")
