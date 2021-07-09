@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<p>this is the student view </p>
+
+<div>
+    <table id="students">
+        <tr>
+            <td>student pic</td>
+            <td><img src="{{ url_for('static', filename='') }}images/{{ student['code'] }}.jpg"></td>
+        </tr>
+        <tr>
+            <td>number</td>
+            <td>{{ student["number"] }}</td>
+        </tr>
+        <tr>
+            <td>code</td>
+            <td>{{ student["code"] }}</td>
+        </tr>
+        <tr>
+            <td>firstname</td>
+            <td>{{ student["firstname"] }}</td>
+        </tr>
+        <tr>
+            <td>lastname</td>
+            <td>{{ student["lastname"] }}</td>
+        </tr>
+        <tr>
+            <td>personal email</td>
+            <td>{{ student["personal_email"] }} <a href="mailto:{{ student['personal_email'] }}"><i
+                        class="fas fa-envelope"></i></a>
+            </td>
+        </tr>
+        <tr>
+            <td>esen email</td>
+            <td>{{ student["esen_email"] }} <a href="mailto:{{ student['esen_email'] }}"><i
+                        class="fas fa-envelope"></i></a>
+            </td>
+        </tr>
+        <tr>
+            <td>github user</td>
+            <td>{{ student["github_account"] }} <a target="_blank"
+                    href="https://github.com/{{ student['github_account'] }}"><i class="fa fa-github"></i></a>
+            </td>
+        </tr>
+    </table>
+</div>
+
+<div>
+    <h3>
+        organization: <span style="font-weight: bold;">{{ orgArray[0]["name"] }}</span>
+    </h3>
+    <h4></h4>
+    <table id="assignments">
+        {% for assign in assignArray %}
+
+        <tr>
+            <td>{{ assign["name"] }}</td>
+            <td><a href="https://github.com/{{ orgArray[0]['name'] }}/{{ assign['name'] }}-{{ student['github_account'] }}"
+                    target="_blank">view</a>
+            </td>
+            <td><a href="https://github.com/{{ orgArray[0]['name'] }}/{{ assign['name'] }}-{{ student['github_account'] }}/actions/"
+                    target="_blank">actions</a>
+            </td>
+        </tr>
+
+        {% endfor %}
+    </table>
+</div>
+
+{% endblock content %}

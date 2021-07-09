@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<p>this is the helper view </p>
+
+<div>
+    <table id="helpers">
+        <tr>
+            <td>helper pic</td>
+            <td><img src="{{ url_for('static', filename='') }}images/{{ helper['code'] }}.jpg"></td>
+        </tr>
+        <tr>
+            <td>code</td>
+            <td>{{ helper["code"] }}</td>
+        </tr>
+        <tr>
+            <td>firstname</td>
+            <td>{{ helper["firstname"] }}</td>
+        </tr>
+        <tr>
+            <td>lastname</td>
+            <td>{{ helper["lastname"] }}</td>
+        </tr>
+        <tr>
+            <td>personal email</td>
+            <td>{{ helper["personal_email"] }} <a href="mailto:{{ helper['personal_email'] }}"><i
+                        class="fas fa-envelope"></i></a>
+            </td>
+        </tr>
+        <tr>
+            <td>github user</td>
+            <td>{{ helper["github_account"] }} <a target="_blank"
+                    href="https://github.com/{{ helper['github_account'] }}"><i class="fa fa-github"></i></a>
+            </td>
+        </tr>
+        <tr>
+            <td>Hour type</td>
+            <td>{{ helper["hour_type"] }}</td>
+        </tr>
+        <tr>
+            <td>Status</td>
+            <td>{{ helper["status"] }}</td>
+        </tr>
+    </table>
+</div>
+
+<div>
+    <h3>
+        organization: <span style="font-weight: bold;">{{ orgArray[0]["name"] }}</span>
+    </h3>
+    <h4></h4>
+    <table id="assignments">
+        {% for assign in assignArray %}
+
+        <tr>
+            <td>{{ assign["name"] }}</td>
+            <td><a href="https://github.com/{{ orgArray[0]['name'] }}/{{ assign['name'] }}-{{ helper['github_account'] }}"
+                    target="_blank">view</a>
+            </td>
+            <td><a href="https://github.com/{{ orgArray[0]['name'] }}/{{ assign['name'] }}-{{ helper['github_account'] }}/actions/"
+                    target="_blank">actions</a>
+            </td>
+        </tr>
+
+        {% endfor %}
+    </table>
+</div>
+
+{% endblock content %}

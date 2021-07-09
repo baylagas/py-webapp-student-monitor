@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<p>this is the list</p>
+
+<table id="students">
+    <tr>
+        <th>Number</th>
+        <th>Code</th>
+        <th>Firstname</th>
+        <th>Lastname</th>
+        <th>Github</th>
+    </tr>
+    {% for student in students %}
+
+    <tr>
+        <td>{{ student["number"] }}</td>
+        <td>{{ student["code"] }}</td>
+        <td>{{ student["firstname"] }}</td>
+        <td>{{ student["lastname"] }}</td>
+        <td>{{ student["github_account"] }}</td>
+        <td><a href="{{ url_for('studentView', code=student['code']) }}">view</a></td>
+    </tr>
+
+    {% endfor %}
+</table>
+{% endblock content %}

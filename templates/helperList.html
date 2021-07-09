@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<p>this is the list</p>
+
+<table id="helpers">
+    <tr>
+        <th>Code</th>
+        <th>Firstname</th>
+        <th>Lastname</th>
+        <th>Github</th>
+    </tr>
+    {% for helper in helpers %}
+
+    <tr>
+        <td>{{ helper["code"] }}</td>
+        <td>{{ helper["firstname"] }}</td>
+        <td>{{ helper["lastname"] }}</td>
+        <td>{{ helper["github_account"] }}</td>
+        <td><a href="{{ url_for('helperView', code=helper['code']) }}">view</a></td>
+    </tr>
+
+    {% endfor %}
+</table>
+{% endblock content %}
