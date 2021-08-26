@@ -4,7 +4,7 @@ import pymysql
 class PybaDatabase:
     def __init__(self):
         self.__host = "localhost"
-        self.__port = 3307
+        self.__port = 3306
         self.__user = "root"
         self.__passwd = "root"
         self.__database = "esendb"
