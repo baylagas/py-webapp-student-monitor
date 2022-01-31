@@ -7,7 +7,7 @@ class OrganizationLogic(PybaLogic):
 
     def getAllOrganizations(self):
         database = self.get_databaseXObj()
-        sql = f"SELECT name FROM esendb.organization; "
+        sql = f"SELECT id,name FROM esendb.organization; "
         rowsList = database.executeQuery(sql)
         if len(rowsList) > 0:
             return rowsList

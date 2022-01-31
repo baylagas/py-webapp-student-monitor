@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<p>this is the organization list</p>
+
+<table id="organizations">
+    <tr>
+        <th>Id</th>
+        <th>Name</th>
+    </tr>
+
+    {% for org in orgs %}
+    <tr>
+        <td>{{ org["id"] }}</td>
+        <td>{{ org["name"] }}</td>
+    </tr>
+    {% endfor %}
+</table>
+
+{% endblock content %}
